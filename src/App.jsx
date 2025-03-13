@@ -9,11 +9,11 @@ function App() {
   return (
     <div>
       <button
-        className={buttonColor}
+        className={buttonState === false ? buttonColor : "grey"}
         onClick={() => setButtonColor(nextColor)}
         disabled={buttonState}
       >
-        Change to blue
+        Change to {nextColor}
       </button>
       <br />
       <input

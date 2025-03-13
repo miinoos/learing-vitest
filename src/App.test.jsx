@@ -16,7 +16,7 @@ test("button starts with correct label and the correct color after click", () =>
   const buttonElement = screen.getByRole("button", { name: /blue/i }); //find the button
   expect(buttonElement).toHaveClass("red"); //check initial class
   fireEvent.click(buttonElement); //click the button with fireEvent
-  expect(buttonElement).toHaveTextContent(/blue/i);
+  expect(buttonElement).toHaveTextContent(/red/i);
   expect(buttonElement).toHaveClass("blue"); //styles are difficult to test via vitest so taking class into consideration
 });
 
@@ -30,7 +30,7 @@ test("checkbox intial checks", () => {
   expect(checkboxElement).not.toBeChecked();
 });
 
-test("checkbox intial checks", () => {
+test("checkbox disables button", () => {
   render(<App />);
   const buttonElement = screen.getByRole("button", { name: /blue/i });
   const checkboxElement = screen.getByRole("checkbox", {
@@ -39,6 +39,7 @@ test("checkbox intial checks", () => {
   fireEvent.click(checkboxElement);
   expect(buttonElement).toBeDisabled();
   expect(checkboxElement).toBeChecked();
+  expect(buttonElement).toHaveClass("grey");
   fireEvent.click(checkboxElement);
   expect(checkboxElement).not.toBeChecked();
   expect(buttonElement).toBeEnabled();
