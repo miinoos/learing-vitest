@@ -1,6 +1,7 @@
 // import { logRoles } from "@testing-library/dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
+import { expect } from "vitest";
 
 test("button starts with correct label and the correct color", () => {
   render(<App />);
@@ -19,4 +20,26 @@ test("button starts with correct label and the correct color after click", () =>
   expect(buttonElement).toHaveClass("blue"); //styles are difficult to test via vitest so taking class into consideration
 });
 
-// test("button starts with the correct text after click", () => {});
+test("checkbox intial checks", () => {
+  render(<App />);
+  const buttonElement = screen.getByRole("button", { name: /blue/i });
+  const checkboxElement = screen.getByRole("checkbox", {
+    name: /disable button/i,
+  });
+  expect(buttonElement).toBeEnabled();
+  expect(checkboxElement).not.toBeChecked();
+});
+
+test("checkbox intial checks", () => {
+  render(<App />);
+  const buttonElement = screen.getByRole("button", { name: /blue/i });
+  const checkboxElement = screen.getByRole("checkbox", {
+    name: /disable button/i,
+  });
+  fireEvent.click(checkboxElement);
+  expect(buttonElement).toBeDisabled();
+  expect(checkboxElement).toBeChecked();
+  fireEvent.click(checkboxElement);
+  expect(checkboxElement).not.toBeChecked();
+  expect(buttonElement).toBeEnabled();
+});
