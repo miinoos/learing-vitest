@@ -9,4 +9,13 @@ export const handlers = [
       { name: "Vanilla", imgPath: "/images/vanilla.png" },
     ]);
   }),
+
+  http.get("http://localhost:3030/toppings", () => {
+    // ...and respond to them using this JSON response.
+    return HttpResponse.json([
+      { name: "Cherries", imgPath: "/images/cherries.png" },
+      { name: "M&Ms", imgPath: "/images/m-and-ms.png" },
+      { name: "Hot fudge", imgPath: "/images/hot-fudg.png" },
+    ]);
+  }),
 ];
