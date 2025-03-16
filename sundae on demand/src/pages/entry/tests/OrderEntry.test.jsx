@@ -1,4 +1,5 @@
-import { render, screen, logRoles } from "@testing-library/react";
+import { render, screen } from "../../../test-utils/testing-library";
+import { logRoles } from "@testing-library/react";
 import OrderEntry from "../OrderEntry";
 
 import { http, HttpResponse } from "msw";

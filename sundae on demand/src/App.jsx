@@ -1,11 +1,15 @@
-import Options from "./pages/entry/Options";
-import SummaryForm from "./pages/SummaryForm";
+import Container from "react-bootstrap/Container";
+import OrderEntry from "./pages/entry/OrderEntry";
+import { OrderDetailsProvider } from "./contexts/OrderDetails";
 
 function App() {
   return (
     <div>
-      <h1>Sundaes on Demand</h1>
-      <Options />
+      <Container>
+        <OrderDetailsProvider>
+          <OrderEntry />
+        </OrderDetailsProvider>
+      </Container>
     </div>
   );
 }
