@@ -7,7 +7,7 @@ const OrderDetails = createContext();
 export function useOrderDetails() {
   const contextValue = useContext(OrderDetails);
 
-  if (!context) {
+  if (!contextValue) {
     throw new Error("Context Must Be Used Inside The Provider");
   }
 

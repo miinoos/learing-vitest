@@ -18,7 +18,7 @@ const ScoopOptions = ({ name, imgPath }) => {
         alt={`${name} scoop`}
       />
       <Form.Group
-        controlId={`${name}-Count`}
+        controlId={`${name}-count`}
         as={Row}
         style={{ marginTop: "10px" }}
       >
@@ -27,9 +27,10 @@ const ScoopOptions = ({ name, imgPath }) => {
         </Form.Label>
         <Col xs="5" style={{ textAlign: "left" }}>
           <Form.Control
-            tyep="number"
+            type="number"
             defaultValue={0}
             onChange={handleChange}
+            // isInvalid={!isValid}
           />
         </Col>
       </Form.Group>

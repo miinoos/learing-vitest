@@ -10,20 +10,20 @@ import { useOrderDetails } from "../../contexts/OrderDetails";
 
 const Options = ({ optionType }) => {
   const [items, setitems] = useState([]);
-  const [error, setError] = useState("");
-  const { totals } = useOrderDetails;
+  const [error, setError] = useState(false);
+  const { totals } = useOrderDetails();
 
   useEffect(() => {
     axios
       .get(`http://localhost:3030/${optionType}`)
       .then((response) => setitems(response.data))
       .catch((err) => {
-        setError(err);
+        setError(true);
       }); //option type is scoop or toppings
   }, [optionType]);
 
-  if (error !== "") {
-    return <AlertBanner message={error} />;
+  if (error) {
+    return <AlertBanner />;
   }
 
   const ItemComponent =
