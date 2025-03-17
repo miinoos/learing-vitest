@@ -30,7 +30,6 @@ const ScoopOptions = ({ name, imgPath }) => {
             type="number"
             defaultValue={0}
             onChange={handleChange}
-            // isInvalid={!isValid}
           />
         </Col>
       </Form.Group>
