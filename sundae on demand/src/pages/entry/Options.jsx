@@ -32,7 +32,7 @@ const Options = ({ optionType }) => {
   const title = optionType[0].toUpperCase() + optionType.slice(1).toLowerCase();
 
   const optionItems = items.map((item, index) => (
-    <ItemComponent key={index} name={item.name} imgPath={item.imgPath} />
+    <ItemComponent key={index} name={item.name} imgPath={item.imagePath} />
   ));
 
   return (
